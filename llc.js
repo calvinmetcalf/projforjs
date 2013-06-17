@@ -1,4 +1,4 @@
-function LCC(params){
+function llc(params){
 	/*
 	based off http://gmaps-utility-gis.googlecode.com/svn/trunk/v3samples/customprojection.html
 	*/
@@ -6,8 +6,6 @@ function LCC(params){
 	/*=========parameters=================*/
 
 	params=params||{};
-
-	this.name=params.name||"LCC";
 
 	var _a = (params.a ||6378137.0 )/(params.unit||0.3048006096012192);
 	var _f_i=params.rf||298.257222101;//this.
@@ -64,51 +62,18 @@ function LCC(params){
 
 	* @param {Array<double>} latlng array with 2 double: [lat,lng]
 
-	* @return {Array<double>} coords array with 2 double: [x,y]
+ */
 
-	*/
-	this.forward = function(lnglat){
-		var phi = lnglat[1] * (Math.PI / 180);
-		var lamda = lnglat[0] * (Math.PI / 180);
-		var t = calc_t(phi, _e);//this.
-		var r = calc_r(_a, _F, t, _n);//this.
-		var theta = _n * (lamda - _lamdaF);
-		var E = _FE + r * Math.sin(theta);
-		var N = _FN + _rF - r * Math.cos(theta);
-		return [E, N];
-	};
-
-	 /**
-
-	* convert  coordinates to lat lng 
-
-	* @param  {Array<double>} coords array with 2 double: [x,y]
-
-	* @return {Array<double>} latlng array with 2 double: [lat,lng]
-
-	*/
-
-	this.inverse = function(xy){
+	return function(xy){
 		var E = xy[0];
 		var N = xy[1];
 		var theta_i = Math.atan((E - _FE) / (_rF - (N - _FN)));
 		var r_i = (_n > 0 ? 1 : -1) * Math.sqrt((E - _FE) * (E - _FE) + (_rF - (N - _FN)) * (_rF - (N - _FN)));
 		var t_i = Math.pow((r_i / (_a * _F)), 1 / _n);
-		var phi = solve_phi(t_i, _e, 0);//this.
+		var phi = solve_phi(t_i, _e, 0);
 		var lamda = theta_i / _n + _lamdaF;
-		return  [lamda * (180 / Math.PI),phi * (180 / Math.PI)];
-	};
+		return  [phi * (180 / Math.PI),lamda * (180 / Math.PI)];
+	
 
-	/**
-
-	 * circum of earth in projected units. This is used in V2's wrap.
-
-	 * @return double.
-
-	 */
-
-	this.circum = function(){
-		return Math.PI * 2 * _a;
-	};
 
 }
