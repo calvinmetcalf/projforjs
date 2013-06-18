@@ -7,3 +7,5 @@ A rewrite of proj4js with the goals of
 - Useful.
 
 The api I'd like this to have is `somefunction(wkt)->transformerFunction`
+
+Mot of the transformation functions are from the [google maps arcgis server link](http://google-maps-utility-library-v3.googlecode.com/svn/trunk/arcgislink/docs/examples.html) which is apache licensed meaning so is this.

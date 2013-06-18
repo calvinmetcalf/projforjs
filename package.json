@@ -1,0 +1,25 @@
+{
+  "name": "ProjForJS",
+  "version": "0.0.0",
+  "description": "just the bits you need",
+  "main": "proj.js",
+  "scripts": {
+    "test": "grunt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/calvinmetcalf/projforjs.git"
+  },
+  "keywords": [
+    "projections",
+    "gis",
+    "spatial"
+  ],
+  "author": "Calvin Metcalf",
+  "license": "Apache",
+  "devDependencies": {
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-cli": "~0.1.9",
+    "grunt": "~0.4.1"
+  }
+}

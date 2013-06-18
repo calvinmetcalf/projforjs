@@ -1,4 +1,4 @@
-function llc(params){
+function lcc(params){
 	/*
 	based off http://gmaps-utility-gis.googlecode.com/svn/trunk/v3samples/customprojection.html
 	*/
@@ -72,8 +72,9 @@ function llc(params){
 		var t_i = Math.pow((r_i / (_a * _F)), 1 / _n);
 		var phi = solve_phi(t_i, _e, 0);
 		var lamda = theta_i / _n + _lamdaF;
-		return  [phi * (180 / Math.PI),lamda * (180 / Math.PI)];
+		return  [lamda * (180 / Math.PI),phi * (180 / Math.PI)];
 	
 
 
+}
 }
