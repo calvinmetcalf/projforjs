@@ -88,8 +88,8 @@ function parseWKT(wkt,robj) {
 				robj.from_greenwich = parseFloat(wktArray.shift()); //to radians?
 				break;
 			case 'UNIT':
-				robj.units = wktName;
-				robj.unitsPerMeter = parseFloat(wktArray.shift());
+				robj.unitName = wktName;
+				robj.unit = parseFloat(wktArray.shift());
 				break;
 			case 'PARAMETER':
 				var name = wktName.toLowerCase();
