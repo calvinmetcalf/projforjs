@@ -1,4 +1,4 @@
-function llc(params){
+function lcc(params){
 	/*
 	based off http://gmaps-utility-gis.googlecode.com/svn/trunk/v3samples/customprojection.html
 	*/
@@ -76,4 +76,5 @@ function llc(params){
 	
 
 
+}
 }
