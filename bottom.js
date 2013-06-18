@@ -5,8 +5,9 @@ projes.tmerc = tmerc;
 exports.proj = function(wkt){
 	var projObj = parseWKT(wkt);
 	var projection = projes[projObj.projName];
-	var projFunc = projection(projObj);
-	return projFunc;
+	if(projection){
+		return projection(projObj);
+	}
 };
 
 })(window);
